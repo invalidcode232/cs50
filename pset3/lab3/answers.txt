@@ -1,0 +1,11 @@
+sort1 uses: Bubble sort
+
+How do you know?: Slow on random numbers and reversed numbers, instant on sorted numbers
+
+sort2 uses: Merge sort
+
+How do you know?: Instant on everything
+
+sort3 uses: Selection sort
+
+How do you know?: Slow on everything
