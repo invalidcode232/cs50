@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+
+        <script>
+
+            // TODO: Add code to check answers to questions
+            document.addEventListener("DOMContentLoaded", d => {
+                // MCQ logic
+                let mcq_feedback = document.querySelector("#mcq_feedback");
+                let wrong_answers = ["false1", "false2", "false3", "false4"];
+
+                for (var i = 0; i < wrong_answers.length; i++){
+                    let f_selector = document.querySelector(`#${wrong_answers[i]}`)
+                    f_selector.addEventListener("click", e => {
+                        f_selector.style.backgroundColor = "red";
+                        mcq_feedback.innerText = "Incorrect";
+                    })
+                }
+
+                let t_selector = document.querySelector("#true");
+                t_selector.addEventListener("click", e => {
+                    t_selector.style.backgroundColor = "green";
+                    mcq_feedback.innerText = "Correct!";
+                })
+
+                // Free response logic
+                let free_feedback = document.querySelector("#free_selector");
+                document.addEventListener("submit", f => {
+                    f.preventDefault();
+
+                    let free_feedback = document.querySelector("#free_feedback");
+
+                    let correct = free_response.value == "Switzerland"
+                    free_response.style.backgroundColor = correct ? "green" : "red";
+                    free_feedback.innerText = correct ? "Correct!" : "Incorrect";
+                })
+            })
+
+        </script>
+
+    </head>
+    <body>
+
+        <div class="jumbotron">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+
+                <!-- TODO: Add multiple choice question here -->
+                <h3>
+                    What is the approximate ratio of people to sheep in New Zealand?
+                </h3>
+                <span id="mcq_feedback"></span>
+
+                <br>
+
+                <button type="button" id="true">6 sheep per people</button>
+                <button type="button" id="false1">3 sheep per people</button>
+                <button type="button" id="false2">1 sheep per people</button>
+                <button type="button" id="false3">14 sheep per people</button>
+                <button type="button" id="false4">2 sheep per people</button>
+
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+
+                <!-- TODO: Add free response question here -->
+                <h3>
+                    In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?
+                </h3>
+                <span id="free_feedback"></span>
+
+                <form id="free_response_form">
+                    <input type="text" id="free_response">
+                    <button type="submit">Submit</button>
+                </form>
+
+
+            </div>
+
+        </div>
+    </body>
+</html>
